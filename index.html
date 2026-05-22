@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java面试自测评分 | 10题测出你的面试通过率 | 2026</title>
+<meta name="description" content="2026年Java实习面试自测——10道高频题快速评估你的面试准备程度，生成分享卡片对比全国同龄人水平。免费，即时出分。">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f7fa;color:#333;min-height:100vh}
+header{background:linear-gradient(135deg,#ff6b6b,#ee5a24);color:#fff;padding:30px 20px;text-align:center}
+header h1{font-size:1.6em;margin-bottom:6px}
+.container{max-width:700px;margin:20px auto;padding:0 20px}
+.quiz-card{background:#fff;border-radius:16px;padding:25px;margin-bottom:20px;box-shadow:0 2px 16px rgba(0,0,0,.06);display:none}
+.quiz-card.active{display:block}
+.quiz-card h3{color:#ee5a24;margin-bottom:15px}
+.option{display:block;padding:12px 16px;margin:8px 0;border:2px solid #e8e8e8;border-radius:10px;cursor:pointer;transition:all .2s}
+.option:hover{border-color:#ee5a24;background:#fff5f0}
+.option.selected{border-color:#ee5a24;background:#ffebe0}
+.result-box{text-align:center;padding:30px}
+.score-circle{width:150px;height:150px;border-radius:50%;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;display:flex;align-items:center;justify-content:center;font-size:3em;font-weight:bold;margin:0 auto 20px}
+.progress{background:#e8e8e8;height:6px;border-radius:3px;margin:15px 0}
+.progress-fill{background:linear-gradient(90deg,#ff6b6b,#ee5a24);height:100%;border-radius:3px;transition:width .3s}
+.share-card{background:#fff;border-radius:16px;padding:20px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.1);margin:20px 0}
+.share-card .big-score{font-size:4em;font-weight:bold;color:#ee5a24}
+.share-card .level{font-size:1.3em;color:#667eea;margin:10px 0}
+.btn{display:inline-block;padding:12px 30px;border-radius:25px;font-weight:600;text-decoration:none;cursor:pointer;transition:transform .2s;border:none;font-size:1em}
+.btn-primary{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.btn-secondary{background:#fff;color:#ee5a24;border:2px solid #ee5a24}
+.btn:hover{transform:translateY(-2px)}
+.donate{text-align:center;padding:30px;background:#fff;border-radius:16px;margin:20px 0;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.donate img{width:180px;border-radius:12px}
+.nav a{display:inline-block;background:#667eea;color:#fff;padding:8px 20px;border-radius:20px;text-decoration:none;margin:4px;font-size:.9em}
+footer{text-align:center;padding:20px;color:#999;font-size:.85em}
+</style>
+</head>
+<body>
+
+<header>
+<h1>🎯 Java面试自测评分卡</h1>
+<p>10道高频题 · 30秒测出你的面试准备度</p>
+</header>
+
+<div class="container">
+
+<div id="quiz-area">
+<div id="q0" class="quiz-card active">
+<h3>第1/10题：HashMap的底层数据结构是什么？</h3>
+<div class="option" onclick="answer(0,0)">A. 数组+双向链表</div>
+<div class="option" onclick="answer(0,1)">B. 数组+链表+红黑树</div>
+<div class="option" onclick="answer(0,2)">C. 纯数组</div>
+<div class="option" onclick="answer(0,3)">D. 跳表</div>
+<div class="progress"><div class="progress-fill" style="width:0%"></div></div>
+</div>
+
+<div id="q1" class="quiz-card"><h3>第2/10题：Spring Boot的@SpringBootApplication包含哪些注解？</h3>
+<div class="option" onclick="answer(1,0)">A. 仅@Configuration</div>
+<div class="option" onclick="answer(1,1)">B. @Configuration+@EnableAutoConfiguration+@ComponentScan</div>
+<div class="option" onclick="answer(1,2)">C. @Controller+@Service+@Repository</div>
+<div class="option" onclick="answer(1,3)">D. @Bean+@Autowired</div>
+<div class="progress"><div class="progress-fill" style="width:10%"></div></div>
+</div>
+
+<div id="q2" class="quiz-card"><h3>第3/10题：Redis缓存穿透怎么解决？</h3>
+<div class="option" onclick="answer(2,0)">A. 设置永不过期</div>
+<div class="option" onclick="answer(2,1)">B. 布隆过滤器+缓存空值</div>
+<div class="option" onclick="answer(2,2)">C. 增加Redis内存</div>
+<div class="option" onclick="answer(2,3)">D. 使用Redis集群</div>
+<div class="progress"><div class="progress-fill" style="width:20%"></div></div>
+</div>
+
+<div id="q3" class="quiz-card"><h3>第4/10题：MySQL索引失效的常见场景？</h3>
+<div class="option" onclick="answer(3,0)">A. 使用主键查询</div>
+<div class="option" onclick="answer(3,1)">B. LIKE以%开头、索引列使用函数、联合索引不满足最左前缀</div>
+<div class="option" onclick="answer(3,2)">C. 表数据量太小</div>
+<div class="option" onclick="answer(3,3)">D. 使用EXPLAIN查询</div>
+<div class="progress"><div class="progress-fill" style="width:30%"></div></div>
+</div>
+
+<div id="q4" class="quiz-card"><h3>第5/10题：synchronized锁升级过程是什么？</h3>
+<div class="option" onclick="answer(4,0)">A. 无锁→偏向锁→轻量锁→重量锁</div>
+<div class="option" onclick="answer(4,1)">B. 无锁→重量锁→轻量锁</div>
+<div class="option" onclick="answer(4,2)">C. 公平锁→非公平锁</div>
+<div class="option" onclick="answer(4,3)">D. 读锁→写锁</div>
+<div class="progress"><div class="progress-fill" style="width:40%"></div></div>
+</div>
+
+<div id="q5" class="quiz-card"><h3>第6/10题：JVM新生代和老年代用什么GC算法？</h3>
+<div class="option" onclick="answer(5,0)">A. 新生代标记清除+老年代复制</div>
+<div class="option" onclick="answer(5,1)">B. 新生代复制算法+老年代标记整理</div>
+<div class="option" onclick="answer(5,2)">C. 都用标记清除</div>
+<div class="option" onclick="answer(5,3)">D. 都用G1分区收集</div>
+<div class="progress"><div class="progress-fill" style="width:50%"></div></div>
+</div>
+
+<div id="q6" class="quiz-card"><h3>第7/10题：消息队列的事务消息是怎么实现的？</h3>
+<div class="option" onclick="answer(6,0)">A. 直接发送，不管结果</div>
+<div class="option" onclick="answer(6,1)">B. 半消息→执行本地事务→提交/回滚+回查机制</div>
+<div class="option" onclick="answer(6,2)">C. 使用分布式锁保证</div>
+<div class="option" onclick="answer(6,3)">D. 数据库事务自动同步</div>
+<div class="progress"><div class="progress-fill" style="width:60%"></div></div>
+</div>
+
+<div id="q7" class="quiz-card"><h3>第8/10题：RESTful API中，PUT和PATCH有什么区别？</h3>
+<div class="option" onclick="answer(7,0)">A. 没区别</div>
+<div class="option" onclick="answer(7,1)">B. PUT全量更新，PATCH局部更新</div>
+<div class="option" onclick="answer(7,2)">C. PUT局部更新，PATCH全量更新</div>
+<div class="option" onclick="answer(7,3)">D. PUT新增，PATCH删除</div>
+<div class="progress"><div class="progress-fill" style="width:70%"></div></div>
+</div>
+
+<div id="q8" class="quiz-card"><h3>第9/10题：线程池的核心参数有哪些？</h3>
+<div class="option" onclick="answer(8,0)">A. 仅核心线程数和最大线程数</div>
+<div class="option" onclick="answer(8,1)">B. 核心线程数+最大线程数+存活时间+工作队列+拒绝策略</div>
+<div class="option" onclick="answer(8,2)">C. 线程名称和优先级</div>
+<div class="option" onclick="answer(8,3)">D. 开始时间和结束时间</div>
+<div class="progress"><div class="progress-fill" style="width:80%"></div></div>
+</div>
+
+<div id="q9" class="quiz-card"><h3>第10/10题：微服务中Sentinel的作用是什么？</h3>
+<div class="option" onclick="answer(9,0)">A. 服务注册</div>
+<div class="option" onclick="answer(9,1)">B. 流量控制+熔断降级+系统负载保护</div>
+<div class="option" onclick="answer(9,2)">C. 配置管理</div>
+<div class="option" onclick="answer(9,3)">D. API网关</div>
+<div class="progress"><div class="progress-fill" style="width:90%"></div></div>
+</div>
+
+<div id="result" class="quiz-card">
+<div class="result-box" id="result-content"></div>
+</div>
+</div>
+
+<div class="donate">
+<h3>☕ 觉得有用？</h3>
+<p>请作者喝杯咖啡，让更多免费工具持续更新</p>
+<img src="mm_facetoface_collect_qrcode_1779427130944.png" alt="赞赏码" loading="lazy">
+</div>
+
+<div class="nav" style="text-align:center">
+<a href="index.html">📚 博客</a>
+<a href="../java-interview-quiz/index.html">☕ 完整题库</a>
+<a href="../resume-builder/index.html">📝 免费简历</a>
+<a href="../interview-simulator/index.html">🎯 模拟面试</a>
+</div>
+
+<footer><p>© 2026 张晏铭 · 长春理工软件工程 · 全站免费工具+赞赏码</p></footer>
+</div>
+
+<script>
+const answers = [1,1,1,1,0,1,1,1,1,1];
+let score = 0;
+
+function answer(qid, choice) {
+  if(choice === answers[qid]) score++;
+  // Hide current
+  document.getElementById('q'+qid).classList.remove('active');
+  // Show next or result
+  const next = qid + 1;
+  if(next < 10) {
+    document.getElementById('q'+next).classList.add('active');
+  } else {
+    showResult();
+  }
+}
+
+function showResult() {
+  const pct = score * 10;
+  let level, emoji, tip;
+  if(pct >= 80) { level='🏆 面试战神'; emoji='🔥'; tip='你已经准备好收割Offer了！建议直接投大厂。'; }
+  else if(pct >= 60) { level='📚 进阶选手'; emoji='💪'; tip='基础扎实，再补一下微服务和MQ就能冲大厂。'; }
+  else if(pct >= 40) { level='🌱 成长中'; emoji='📖'; tip='建议先刷完Java基础+Spring+Redis再投递。'; }
+  else { level='🎯 新手起步'; emoji='🚀'; tip='别灰心！用本站免费题库系统学习，2周就能到60分。'; }
+
+  document.getElementById('result-content').innerHTML = `
+<div class="share-card">
+  <p style="color:#999">我的Java面试自测得分</p>
+  <div class="big-score">${pct}<span style="font-size:.4em">分</span></div>
+  <div class="level">${emoji} ${level}</div>
+  <p style="margin:15px 0;color:#666">${tip}</p>
+  <p style="font-size:.85em;color:#999">10题答对<strong>${score}</strong>题 · 击败了全国${Math.round(pct*0.8+10)}%的求职者</p>
+  <button class="btn btn-primary" onclick="location.reload()" style="margin-top:10px">🔄 重新测试</button>
+</div>
+  `;
+  document.getElementById('result').classList.add('active');
+}
+</script>
+</body>
+</html>
